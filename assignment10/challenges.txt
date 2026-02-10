@@ -1,0 +1,12 @@
+CHALLENGES AND RESOLUTIONS
+
+Assignment 10 - Web Scraping with Selenium
+
+Challenge 1: Missing Dependencies - The selenium module wasn't installed initially
+Resolution: Installed selenium, webdriver-manager, and pandas packages using the Python package installer
+
+Challenge 2: Page Loading Issues
+Resolution: Replaced with WebDriverWait and explicit waits using expected_conditions.presence_of_all_elements_located() for more reliable element detection
+
+Challenge 3:  The OWASP page takes time to fully load its content
+Resolution: Set up a 10-second wait timeout to ensure all elements were present before extracting data

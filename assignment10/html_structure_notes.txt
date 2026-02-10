@@ -1,0 +1,25 @@
+# Durham County Library Search Results - HTML Structure Notes
+# Fill in these values by inspecting the page with browser developer tools
+
+## Search Results List Item (<li> element)
+# Class attribute(s):
+search_result_li_class = ""
+
+## Title Element
+# Tag type: 
+title_tag = ""
+# Class attribute(s):
+title_class = ""
+
+## Author Element(s)
+# Tag type (hint: it's a link):
+author_tag = ""
+# Class attribute(s):
+author_class = ""
+# Note: Handle multiple authors - they may have the same class
+
+## Format and Year Element
+# Containing div class:
+format_year_container_class = ""
+# Format/Year element class:
+format_year_class = ""

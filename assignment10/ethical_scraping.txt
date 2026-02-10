@@ -1,0 +1,58 @@
+TASK 5: Ethical Web Scraping - Wikipedia robots.txt Analysis
+
+QUESTION 1: Which sections of the website are restricted for crawling?
+
+Wikipedia restricts a large number of pages from general crawling:
+
+General Restrictions (applies to all user-agents):
+- /w/ (internal wiki editing and API paths)
+- /api/ (API endpoints, though some specific APIs are allowed)
+- /trap/ (honeypot/trap pages)
+- /wiki/Special: (Special pages for all languages)
+- /wiki/Wikipedia: deletion, voting, and arbitration pages (Articles_for_deletion, Pages_for_deletion, Miscellany_for_deletion, Deletion_review, etc.)
+- /wiki/Wikipedia: copyright problem pages (Copyright_problems, Suspected_copyright_violations, etc.)
+- /wiki/Wikipedia: administrative and arbitration pages (Requests_for_arbitration, Requests_for_comment, Requests_for_adminship, Administrator_elections, etc.)
+- /wiki/Wikipedia: spam-related pages (WikiProject_Spam, Spam-Blacklist-Log)
+- /wiki/Module:Sandbox and /wiki/Template:TemplateStyles_sandbox (testing/sandbox pages)
+- User pages (vary by language, e.g., /wiki/User:, /wiki/Bruker:)
+- Talk/Discussion pages related to restricted content
+
+Allowed Exceptions:
+- /w/api.php?action=mobileview (for mobile web and app views)
+- /w/load.php (resource loading)
+- /api/rest_v1/?doc (REST API documentation)
+- /w/rest.php/site/v1/sitemap (sitemap access)
+
+---
+
+QUESTION 2: Are there specific rules for certain user agents?
+
+YES. Wikipedia has very specific rules for different user agents:
+
+Completely Blocked Bots (User-agent: [specific bot name], Disallow: /):
+- MJ12bot (observed spamming and ignoring ratelimit responses)
+- Mediapartners-Google (advertising-related bot)
+- UbiCrawler, DOC, Zao (copying bots)
+- SiteSnagger, WebStripper, WebCopier, WebZIP, HTTrack, larbin (site-copying tools)
+- Fetch, Offline Explorer, Teleport, TeleportPro (offline browsing tools)
+- wget (recursive mode causes problems - users should use --wait option instead)
+- grub-client (poor behavior)
+- k2spider (doesn't follow robots.txt anyway)
+- NPBot (hits too fast)
+- WebReaper (captures content with no public benefit)
+- Download Ninja, fast, Zealbot, MSIECrawler, linko, libwww, ZyBORG, Xenu, Microsoft.URL.Control (various misbehaving bots)
+
+Allowed with Rate Limits:
+- SemrushBot: Crawl-delay: 5 seconds (to keep requests within 20 requests per second across the site)
+
+Friendly Bots:
+- IsraBot, Orthogaffe (Wikipedia work bots - allowed)
+
+Default for Other Bots:
+- User-agent: * (all other bots) follow the general restrictions listed above
+
+---
+
+PURPOSE OF ROBOTS.TXT AND ETHICAL WEB SCRAPING:
+
+Robots.txt files serve as a contractual agreement between website owners and automated crawlers. They establish boundaries for web scraping and crawling activities. The purpose is threefold: first, it protects server resources by preventing aggressive bots from overwhelming the site with excessive requests; second, it allows website owners to exclude sensitive, private, or sensitive content (like deletion discussions, user sandboxes, and administrative pages) from search engines; and third, it promotes ethical web scraping by establishing a common standard of respect - responsible scrapers check and follow robots.txt to avoid overloading servers and accessing restricted information. By respecting these rules, developers demonstrate integrity and help maintain a sustainable internet ecosystem where automated access is balanced with server health and user privacy.
